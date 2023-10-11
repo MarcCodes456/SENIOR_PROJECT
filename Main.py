@@ -14,6 +14,7 @@ cap.set(3, width)
 cap.set(4, height)
 
 # Hand Detector
+# Change to 2 Hands
 detector = HandDetector(maxHands=1, detectionCon=0.8)
 
 #Communication To Unity
@@ -35,10 +36,10 @@ while True:
     if hands:
         hand = hands[0]
         lmList = hand['lmList']
-        #print(lmList)
+        print(lmList)
         for lm in lmList:
             data.extend([lm[0], height - lm[1], lm[2]])
-        #print(data)
+        print(data)
         sock.sendto(str.encode(str(data)), serverAddressPort)
 
 # 10/3 Create Unity Project and Send Data their
