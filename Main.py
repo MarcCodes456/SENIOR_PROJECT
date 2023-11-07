@@ -15,7 +15,7 @@ cap.set(4, height)
 
 # Hand Detector
 # Change to 2 Hands
-detector = HandDetector(maxHands=1, detectionCon=0.8)
+detector = HandDetector(maxHands=2, detectionCon=0.8)
 
 #Communication To Unity
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -34,10 +34,20 @@ while True:
     # Landmark Values - (x,y,z) * 21
     
     if hands:
-        hand = hands[0]
-        lmList = hand['lmList']
+        hand1 = hands[0]
+        lmList = hand1['lmList']
         print(lmList)
         for lm in lmList:
+            data.extend([lm[0], height - lm[1], lm[2]])
+        print(data)
+        sock.sendto(str.encode(str(data)), serverAddressPort)
+
+    #second hand
+    if hands:
+        hand2 = hands[0]
+        lmList2 = hand2['lmList']
+        print(lmList2)
+        for lm in lmList2:
             data.extend([lm[0], height - lm[1], lm[2]])
         print(data)
         sock.sendto(str.encode(str(data)), serverAddressPort)
