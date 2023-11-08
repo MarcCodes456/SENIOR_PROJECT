@@ -7,11 +7,13 @@ public class HandTracking : MonoBehaviour
 
     public UDPReceive udpReceive;
     public GameObject[] handPoints;
+    public GameObject[] handPointsB;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 
@@ -30,8 +32,19 @@ public class HandTracking : MonoBehaviour
         float y = float.Parse(points[i*3 + 1])/80;
         float z = float.Parse(points[i*3 + 2])/80;
 
-        handPoints[i].transform.localPosition = new Vector3(x, y, z);
+        /*
+        In the 'Main.py' find a way to print out the "handType" as a string 'Left' or 'Right'
+        
+        if(handType == 'Right'){
+            handPoints[i].transform.localPosition = new Vector3(x, y, z);
+        }
 
+        if(handType == 'Left'){
+            handPointsB[i].transform.localPosition = new Vector3(x, y, z);
+        }
+        */
+        handPoints[i].transform.localPosition = new Vector3(x, y, z);
+        handPointsB[i].transform.localPosition = new Vector3(x, y, z);
         }
     }
 
