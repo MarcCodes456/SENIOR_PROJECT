@@ -12,6 +12,8 @@ public class UDPReceive: MonoBehaviour{
   public bool startRecieving = true;
   public bool printToConsole = false;
   public string data;
+  public string handType;
+
   
 
   public void Start(){
