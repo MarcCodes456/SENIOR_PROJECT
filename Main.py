@@ -20,6 +20,7 @@ detector = HandDetector(maxHands=2, detectionCon=0.8)
 #Communication To Unity
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = ("127.0.0.1",6969) #5052 alt port
+serverAddressPort_Alt = ("127.0.0.1",4200) #5052 alt port
 
 while True:
     success, img = cap.read()
@@ -46,7 +47,7 @@ while True:
                 print(handType1)
         
         sock.sendto(str.encode(str(data)), serverAddressPort)
-        sock.sendto(str.encode(str(handType1)), serverAddressPort)
+        sock.sendto(str.encode(str(handType1)), serverAddressPort_Alt)
 
         #second hand
         if len(hands) == 2:
@@ -62,7 +63,7 @@ while True:
                     print(handType2)
 
             sock.sendto(str.encode(str(data)), serverAddressPort)
-            sock.sendto(str.encode(str(handType2)), serverAddressPort)
+            sock.sendto(str.encode(str(handType2)), serverAddressPort_Alt)
         print(" ")  # New line for better readability of the printed output
 
     
