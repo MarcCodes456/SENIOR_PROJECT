@@ -43,15 +43,21 @@ public class HandTracking : MonoBehaviour
         //In the 'Main.py' find a way to print out the "handType" as a string 'Left' or 'Right'
         
         //Alt outcomes use booleans instead of strings
-        if(handType == "Right"){
+        Debug.Log("handType: " + handType);
+
+        if (handType == "Right")
+        {
             handPoints[i].transform.localPosition = new Vector3(x1, y1, z1);
         }
-        else{print("Not Right");}
-
-        if(handType == "Left"){
+        else if (handType == "Left")
+        {
             handPointsB[i].transform.localPosition = new Vector3(x2, y2, z2);
         }
-        else{print("Not Left");}
+        else
+        {
+            Debug.LogWarning("Unexpected handType: " + handType);
+        }
+
         
 
 
