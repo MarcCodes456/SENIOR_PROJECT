@@ -66,6 +66,22 @@ while True:
             sock.sendto(str.encode(str(handType2)), serverAddressPort_Alt)
         print(" ")  # New line for better readability of the printed output
 
+        
     
 
+        #BOTH HANNNDDSS
+    #    if len(hands) == 2:
+ #           bHands = hands[0]
+ #           lmList3 = bHands['lmList']
+   #         bothHands = bHands["type"]
+   #         print(lmList3)
+   #         for lm in lmList3:
+    #            data.extend([lm[0], height - lm[1], lm[2]])
+   #         print(data)
+    #        if bothHands == handType2 + handType1:
+     #           for ht in bothHands:
+    #                print("Both")
+     #       sock.sendto(str.encode(str(data)), serverAddressPort)
+     #       sock.sendto(str.encode(str(bothHands)), serverAddressPort_Alt)
+     #   print(" ")
 # 10/3 Create Unity Project and Send Data their
