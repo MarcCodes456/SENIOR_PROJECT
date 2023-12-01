@@ -40,16 +40,18 @@ public class HandTracking : MonoBehaviour
         float z2 = float.Parse(points[i*3 + 2])/80;
 
         
-        //In the 'Main.py' find a way to print out the "handType" as a string 'Left' or 'Right'
-        
-        //Alt outcomes use booleans instead of strings
+        if (handType == "Right" && handType == "Left"){
+            handType = "Both";
+        }
+
+
         Debug.Log("handType: " + handType);
 
-        if (handType == "Right")
+        if (handType == "Right" || handType == "Both")
         {
             handPoints[i].transform.localPosition = new Vector3(x1, y1, z1);
         }
-        else if (handType == "Left")
+        else if (handType == "Left" || handType == "Both")
         {
             handPointsB[i].transform.localPosition = new Vector3(x2, y2, z2);
         }
@@ -58,11 +60,6 @@ public class HandTracking : MonoBehaviour
             Debug.LogWarning("Unexpected handType: " + handType);
         }
 
-        
-
-
-        //handPoints[i].transform.localPosition = new Vector3(x, y, z);
-        //handPointsB[i].transform.localPosition = new Vector3(x, y, z);
 
         }
     }
